@@ -16,6 +16,8 @@ export default function ToastProvider({ children }) {
   };
 
   const close = (id) => {
+    const audio = new Audio('https://www.fesliyanstudios.com/play-mp3/5482');
+    audio.play();
     setToasts(toasts => toasts.filter(toast => toast.id !== id));
   };
 
