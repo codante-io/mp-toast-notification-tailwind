@@ -59,21 +59,21 @@ export default function App() {
         <div className='flex flex-wrap justify-center gap-x-2 gap-y-4 p-4 w-80'>
           <button
             data-bg={positionX}
-            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=left-2]:bg-green-300'
+            className='hidden sm:flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=left-2]:bg-green-300'
             onClick={() => setPositionX('left-2')}
           >
             <span>Esquerda</span>
           </button>
           <button
             data-bg={positionX}
-            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300  data-[bg=left-1/2 transform -translate-x-1/2]:bg-green-300' 
+            className='hidden sm:flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300  data-[bg=left-1/2 transform -translate-x-1/2]:bg-green-300' 
             onClick={() => setPositionX('left-1/2 transform -translate-x-1/2')}
           >
             <span>Centro</span>
           </button>
           <button
             data-bg={positionX}
-            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=right-2]:bg-green-300' 
+            className='hidden sm:flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=right-2]:bg-green-300' 
             onClick={() => setPositionX('right-2')}
           >
             <span>Direita</span>
