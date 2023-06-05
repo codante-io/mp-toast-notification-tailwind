@@ -36,7 +36,7 @@ export default function App() {
     const user = await randonUser.json();
     setPerson(user.results);
 
-    const id = toast.open(
+   toast.open(
       <div className='drop-shadow gap-2 flex  bg-gray-900 text-gray-200 rounded-2xl p-4 shadow-lg w-96 h-28'>
         <div className='flex items-center justify-between gap-4 border-2 border-transparent border-r-gray-700	'>
           <img
@@ -50,7 +50,7 @@ export default function App() {
           </div>
         </div>
       </div>,
-      10000,
+      5000,
     );
   };
 
