@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { useToast } from './components/ToastService';
 
 export default function App() {
+  const { positionY, setPositionY, positionX, setPositionX } = useToast();
   const toast = useToast();
-  // const [positionY, setPositionY] = useState("top-2");
-  // const [positionX, setPositionX] = useState("right-2");
   const [quote, setQuote] = useState('Hello, toast! I mean... World!');
   const [person, setPerson] = useState([
     {
@@ -19,13 +18,6 @@ export default function App() {
     },
   ]);
 
-  // to-do: add position state
-  // const top = 'top-2'
-  // const bottom = 'bottom-2'
-  // const left = 'left-2'
-  // const right = 'right-2'
-  // const center = 'left-1/2 transform -translate-x-1/2'
-
   const handleClick = async () => {
     const audio = new Audio('https://www.fesliyanstudios.com/play-mp3/2673');
     audio.play();
@@ -36,7 +28,7 @@ export default function App() {
     const user = await randonUser.json();
     setPerson(user.results);
 
-   toast.open(
+    toast.open(
       <div className='drop-shadow gap-2 flex  bg-gray-900 text-gray-200 rounded-2xl p-4 shadow-lg w-96 h-28'>
         <div className='flex items-center justify-between gap-4 border-2 border-transparent border-r-gray-700	'>
           <img
@@ -55,14 +47,53 @@ export default function App() {
   };
 
   return (
-    <main className='bg-gray-800 grid place-items-center h-screen'>
-      <div>
+    <main className='bg-gray-800 flex flex-row min-h-screen justify-center items-center'>
+      <div className='flex justify-center items-center flex-col'>
         <button
-          className='bg-green-300 rounded-full w-52 h-14 text-lg text-gray-800'
+          className='bg-green-300 rounded-full w-52 h-14 text-lg text-gray-800 flex justify-center items-center' 
           onClick={handleClick}
         >
-          Mostrar Notificação
+          <span>Mostrar Notificação</span>
         </button>
+
+        <div className='flex flex-wrap justify-center gap-x-2 gap-y-4 p-4 w-80'>
+          <button
+            data-bg={positionX}
+            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=left-2]:bg-green-300'
+            onClick={() => setPositionX('left-2')}
+          >
+            <span>Esquerda</span>
+          </button>
+          <button
+            data-bg={positionX}
+            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300  data-[bg=left-1/2 transform -translate-x-1/2]:bg-green-300' 
+            onClick={() => setPositionX('left-1/2 transform -translate-x-1/2')}
+          >
+            <span>Centro</span>
+          </button>
+          <button
+            data-bg={positionX}
+            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=right-2]:bg-green-300' 
+            onClick={() => setPositionX('right-2')}
+          >
+            <span>Direita</span>
+          </button>
+          <button
+            data-bg={positionY}
+            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=bottom-2]:bg-green-300' 
+            onClick={() => setPositionY('bottom-2')}
+          >
+            <span>Borda Inferior</span>
+          </button>
+          <button
+            data-bg={positionY}
+            className='flex justify-center items-center rounded-xl text-sm py-2 px-4 bg-white focus:bg-green-300 data-[bg=top-2]:bg-green-300' 
+            onClick={() => setPositionY('top-2')}
+          >
+            <span>Borda Superior</span>
+          </button>
+       
+        </div>
       </div>
     </main>
   );

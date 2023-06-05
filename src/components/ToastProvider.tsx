@@ -6,6 +6,8 @@ import ToastContext from './ToastService';
 
 export default function ToastProvider({ children }) {
   const [toasts, setToasts] = useState([]);
+  const [positionY, setPositionY] = useState("top-2");
+  const [positionX, setPositionX] = useState("right-2");
 
   const open = (component, timeout = 5000) => {
     const id = Date.now();
@@ -23,9 +25,9 @@ export default function ToastProvider({ children }) {
   };
 
   return (
-    <ToastContext.Provider value={{ open, close }}>
+    <ToastContext.Provider value={{ open, close, positionY, setPositionY, positionX, setPositionX }}>
       {children}
-      <div className='absolute top-2 right-2'>
+      <div className={`absolute ${positionY} ${positionX}`}>
         {toasts.map(({ id, component, timeoutID }) => (
           <div key={id} className='flex p-2 right-0'>
             <button
