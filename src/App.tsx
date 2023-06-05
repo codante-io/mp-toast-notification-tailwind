@@ -36,9 +36,9 @@ export default function App() {
             src={person[0].picture.large}
             alt='thumbnail'
           />
-          <div className='border-r-gray-700	p-2'>
-            <h1 className='font-bold text-lg'>{`${person[0].name.first} ${person[0].name.last}`}</h1>
-            <p className='text-base w-44 '> {`${quote.slice(0, 45)}...`}</p>
+          <div className='border-r-gray-700	p-2 overflow-hidden'>
+            <h1 className='font-bold w-44 text-lg truncate'>{`${person[0].name.first} ${person[0].name.last}`}</h1>
+            <p className='text-base w-44 truncate'> {`${quote}`}</p>
           </div>
         </div>
       </div>,
