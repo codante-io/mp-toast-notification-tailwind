@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="/src/input.css">
+  <title>Toast Notification</title>
+</head>
+<body class="w-screen h-screen bg-gray-800 flex items-center justify-center overflow-hidden p-0 m-0">
+
+	<section 
+		id="container-notifications" 
+		class="absolute top-0 right-0 p-4">
+	</section>
+
+	<button 
+		class="text-gray-800 bg-green-300 p-4 rounded-full font-semibold"
+		id="btn-notification"
+		>
+		Mostrar Notificação
+	</button>
+
+	<script src="/src/index.js"></script>
+</body>
+
+<template id="notification-template">
+	<dialog 
+			open
+			class="relative text-gray-200 bg-gray-900 rounded-3xl w-72 flex open:p-2 p-0 mb-4 items-center gap-4 shadow-lg justify-evenly transition-all duration-1000 open:translate-x-0 translate-x-96 open:max-h-20 max-h-0 overflow-hidden open:opacity-100 opacity-0 animate-notification"
+			>
+			<section class="flex gap-2 justify-center items-center">
+				<div class="w-14 bg-gray-900 rounded-full">
+					<img 
+					src="https://i.pravatar.cc/56?img=57" 
+					alt="avatar do usuário" 
+					class="rounded-full"
+					>
+				</div>
+
+				<div class="w-32">
+					<h3 class="font-semibold">Raphael</h3>
+					<p class="text-sm overflow-hidden text-ellipsis line-clamp-1">blz, então deixa pra combinarmos esse rolê de sabado depois</p>
+				</div>
+			</section>
+
+			<div class="bg-gray-700 w-[1px] h-16"></div>
+
+			<form method="dialog">
+				<button class="text-green-300 font-semibold text-lg">Close</button>
+			</form>
+		</dialog>
+</template>
+</html>
