@@ -622,8 +622,20 @@ video {
   animation: notification-enter 0.3s linear;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-center {
@@ -758,4 +770,22 @@ video {
 
 .open\:opacity-100[open] {
   opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
+  }
+
+  .lg\:overflow-hidden {
+    overflow: hidden;
+  }
 }
